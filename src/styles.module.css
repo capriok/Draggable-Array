@@ -1,9 +1,20 @@
-/* add css module styles here (optional) */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+  font-size: 2rem;
+}
 
-.test {
-  margin: 2em;
-  padding: 0.5em;
-  border: 2px solid #000;
-  font-size: 2em;
-  text-align: center;
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  list-style: none;
+  margin: 5px;
+}
+
+.item {
+  width: 100px;
 }

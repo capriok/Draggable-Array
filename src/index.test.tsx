@@ -1,7 +1,7 @@
-import { ExampleComponent } from '.'
+import DraggableArray from '.'
 
 describe('ExampleComponent', () => {
   it('is truthy', () => {
-    expect(ExampleComponent).toBeTruthy()
+    expect(DraggableArray).toBeTruthy()
   })
 })
