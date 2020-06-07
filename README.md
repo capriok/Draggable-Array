@@ -40,10 +40,12 @@ const App = () => {
 ```
 [![Edit Button](https://svgshare.com/i/KAx.svg)](https://codesandbox.io/s/react-draggable-array-2kdql)
 
+## Options
 | prop | action  |
 | :-------------|:------------- |
 | row ( default ) | displays children in row orientation|
-| col | displays children in col orientation |
+| col | displays children in col orientation |  
+
 
 ## License
 This project is licensed under the terms of the [MIT license](/LICENSE)
