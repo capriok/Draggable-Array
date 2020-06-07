@@ -1,4 +1,40 @@
 * {
   padding: 0;
   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.title {
+  font-size: 1.8rem;
+  padding: 20px;
+  text-align: center;
+}
+
+.card {
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid black;
+  background-color: white;
+}
+.card-h {
+  font-size: 1.5rem;
+}
+.card-p {
+  font-size: 1.8rem;
+  padding: 10px;
+}
+
+.string {
+  font-size: 2rem;
+  margin: 10px;
 }

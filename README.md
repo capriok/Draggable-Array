@@ -1,30 +1,47 @@
 # react-draggable-array
 
-> React Draggable Array Component
+<h1 align="center">Godspeed</h1>
 
-[![NPM](https://img.shields.io/npm/v/react-draggable-array.svg)](https://www.npmjs.com/package/react-draggable-array) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-draggable-array.svg)](https://www.npmjs.com/package/react-draggable-array)
+
+React wrapper component  utilizing native browser drag API. Happy dragging.
 
 ## Install
 
-```bash
+Available as an [npm package](https://www.npmjs.com/package/react-draggable-array)
+
+```sh
 npm install --save react-draggable-array
 ```
 
 ## Usage
 
-```tsx
-import React, { Component } from 'react'
+```js
+import React from 'react'
 
-import MyComponent from 'react-draggable-array'
+// Import the component
+import DraggableArray from 'react-draggable-array'
+// Import the css
 import 'react-draggable-array/dist/index.css'
 
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const App = () => {
+
+  // Define the array
+  const items = [ '🦜', '🦖', '🦆', '🦔', '🐤', '🐧' ]
+
+  return (
+    // Wrap a map of the items in the DraggableArray component
+    <DraggableArray>
+      {items.map((item) => (
+        <p>{item}</p>
+      ))}
+    </DraggableArray>
+  )
 }
+
 ```
+[![Edit Button](https://svgshare.com/i/KAx.svg)](https://codesandbox.io/s/react-draggable-array-2kdql)
+
 
 ## License
-
-MIT © [capriok](https://github.com/capriok)
+This project is licensed under the terms of the [MIT license](/LICENSE)

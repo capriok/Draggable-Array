@@ -12,31 +12,13 @@ import _six from './imgs/6.png'
 
 const App = () => {
 
-  const OBJ_IMG_ITEMS = [
-    { item: _one, },
-    { item: _two, },
-    { item: _three, },
-    { item: _four, },
-    { item: _five, },
-    { item: _six, }
-  ]
-
   const OBJ_STRING_ITEMS = [
-    { item: '🦜', name: 'parrot' },
-    { item: '🦖', name: 'dinosaur' },
-    { item: '🦆', name: 'duck' },
-    { item: '🦔', name: 'porkypine' },
-    { item: '🐤', name: 'chick' },
-    { item: '🐧', name: 'penguin' }
-  ]
-
-  const IMG_ITEMS = [
-    _one,
-    _two,
-    _three,
-    _four,
-    _five,
-    _six,
+    { item: '🦜', name: 'Parrot' },
+    { item: '🦖', name: 'Dinosaur' },
+    { item: '🦆', name: 'Duck' },
+    { item: '🦔', name: 'Porkypine' },
+    { item: '🐤', name: 'Chick' },
+    { item: '🐧', name: 'Penguin' }
   ]
 
   const STRING_ITEMS = [
@@ -50,41 +32,27 @@ const App = () => {
 
   return (
     <>
-      <DraggableArray>
-        {OBJ_IMG_ITEMS.map(({ item }, i) => (
-          <div style={{ margin: 20, textAlign: 'center' }}>
-            <img style={{ width: 50 }}
-              key={i}
-              src={item}
-
-              alt="" />
-            <p>images</p>
-          </div>
-        ))}
-      </DraggableArray>
-      <DraggableArray>
-        {OBJ_STRING_ITEMS.map(({ item, name }, i) => (
-          <div key={i} style={{ margin: 20, padding: 20, textAlign: 'center', border: ' 1px solid black' }}>
-            <h1 >Card</h1>
-            <p style={{ paddingBottom: 10 }}>{item}</p>
-            <p>{name}</p>
-          </div>
-        ))}
-      </DraggableArray>
-      <DraggableArray>
-        {IMG_ITEMS.map((item, i) => (
-          <img style={{ margin: 20, width: 40 }}
-            key={i}
-            src={item}
-            alt="">
-          </img>
-        ))}
-      </DraggableArray>
-      <DraggableArray>
-        {STRING_ITEMS.map((item, i) => (
-          <p key={i} style={{ margin: 20, textAlign: 'center' }}>{item}</p>
-        ))}
-      </DraggableArray>
+      <div className="app">
+        <section>
+          <h1 className="title">Array of objects into cards</h1>
+          <DraggableArray>
+            {OBJ_STRING_ITEMS.map(({ item, name }, i) => (
+              <div key={i} className="card">
+                <h1 className="card-h">{name}</h1>
+                <p className="card-p">{item}</p>
+              </div>
+            ))}
+          </DraggableArray>
+        </section>
+        <section>
+          <h1 className="title">String arrays are fine too </h1>
+          <DraggableArray>
+            {STRING_ITEMS.map((item, i) => (
+              <p key={i} className="string">{item}</p>
+            ))}
+          </DraggableArray>
+        </section>
+      </div>
     </>
   )
 }

@@ -1,11 +1,15 @@
 import * as React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+
 import styles from './styles.module.css'
-const DraggableArray: React.FC<props> = ({ children }) => {
+
+const DraggableArray: React.FC<props> = ({ children, col }) => {
+
   const childArr: any[] = []
   React.Children.forEach(children, (child?: any) => childArr.push(child))
+
   const [arr, setArr] = useState<any[]>(childArr)
-  const [dragging, isDragging] = useState<boolean>(true)
+
   const [draggedItem, setDraggedItem] = useState<[]>()
   const [draggedOverItem, setDraggedOverItem] = useState<[]>()
 
@@ -17,8 +21,8 @@ const DraggableArray: React.FC<props> = ({ children }) => {
     index:
       number
   ): void => {
-    isDragging(true)
     setDraggedItem(arr[index])
+
     e.dataTransfer.effectAllowed = 'move'
     e.dataTransfer.setData('text/html', e.target.parentNode)
     e.dataTransfer.setDragImage(e.target.parentNode, 40, 35)
@@ -30,28 +34,22 @@ const DraggableArray: React.FC<props> = ({ children }) => {
       any
   ): void => {
     setDraggedOverItem(arr[index])
+
     if (draggedItem === draggedOverItem) {
       return
     }
+
     let newArr = arr.filter((item: []) => {
       return item !== draggedItem
     })
+
     newArr.splice(index, 0, draggedItem)
+
     setArr(newArr)
   }
 
-  const onDragEnd = (): void => {
-    console.log('end');
-
-    isDragging(false)
-  }
-
-  useEffect(() => {
-    !dragging && console.log(arr);
-  }, [dragging])
-
   return (
-    <div className={styles.main}>
+    <div className={col ? styles.mainCol : styles.main}>
       <React.Fragment>
         {arr.map(({ type, props, props: { children } }, idx) => (
           <li
@@ -62,8 +60,7 @@ const DraggableArray: React.FC<props> = ({ children }) => {
               style={children ? { ...props.style } : {}}
               draggable={true}
               onDragStart={e => onDragStart(e, idx)}
-              onDragOver={() => onDragOver(idx)}
-              onDragEnd={() => onDragEnd()}>
+              onDragOver={() => onDragOver(idx)}>
               {children && typeof children !== 'string'
                 ? React.Children.map(
                   children,

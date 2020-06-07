@@ -8,7 +8,6 @@ declare module '*.css' {
 }
 
 interface props {
-  // children?: React.ReactNode
-  // items: itemObj[],
-  // images?: boolean
+  row?: boolean
+  col?: boolean
 }
