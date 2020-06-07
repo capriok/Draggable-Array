@@ -52,7 +52,7 @@ const DraggableArray: React.FC<props> = ({ children, col }) => {
     <div className={col ? styles.mainCol : styles.main}>
       <React.Fragment>
         {arr.map(({ type, props, props: { children } }, idx) => (
-          <li
+          <li key={idx}
             className={styles.wrapper}
             draggable={true}>
             <div
