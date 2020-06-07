@@ -1,10 +1,8 @@
-# react-draggable-array
-
-<h1 align="center">Godspeed</h1>
+<h1 align="center">Draggable Array</h1>
 
 [![NPM](https://img.shields.io/npm/v/react-draggable-array.svg)](https://www.npmjs.com/package/react-draggable-array)
 
-React wrapper component  utilizing native browser drag API. Happy dragging.
+Wrapper component utilizing native browser drag API for its children. Happy dragging.
 
 ## Install
 
@@ -42,6 +40,10 @@ const App = () => {
 ```
 [![Edit Button](https://svgshare.com/i/KAx.svg)](https://codesandbox.io/s/react-draggable-array-2kdql)
 
+| prop | action  |
+| :-------------|:------------- |
+| row ( default ) | displays children in row orientation|
+| col | displays children in col orientation |
 
 ## License
 This project is licensed under the terms of the [MIT license](/LICENSE)

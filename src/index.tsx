@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import styles from './styles.module.css'
 
-const DraggableArray: React.FC<props> = ({ children, col }) => {
+const DraggableArray: React.FC<props> = ({ children, row, col }) => {
 
   const childArr: any[] = []
   React.Children.forEach(children, (child?: any) => childArr.push(child))
@@ -49,7 +49,7 @@ const DraggableArray: React.FC<props> = ({ children, col }) => {
   }
 
   return (
-    <div className={col ? styles.mainCol : styles.main}>
+    <div className={col ? styles.mainCol : row ? styles.mainRow : styles.main}>
       <React.Fragment>
         {arr.map(({ type, props, props: { children } }, idx) => (
           <li key={idx}

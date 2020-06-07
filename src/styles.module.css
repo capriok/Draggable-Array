@@ -4,6 +4,12 @@
   align-items: center;
 }
 
+.mainRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .mainCol {
   display: flex;
   justify-content: center;
