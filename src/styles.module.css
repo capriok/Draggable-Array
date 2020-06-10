@@ -17,11 +17,7 @@
   flex-direction: column;
 }
 
-.wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+li {
   cursor: pointer;
   list-style: none;
-  margin: 5px;
 }

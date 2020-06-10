@@ -12,6 +12,10 @@
   height: 100vh;
 }
 
+.draggable-cont {
+  background-color: cadetblue;
+}
+
 .title {
   font-size: 1.8rem;
   padding: 20px;

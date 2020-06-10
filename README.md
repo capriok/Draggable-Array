@@ -43,7 +43,8 @@ const App = () => {
 ## Options
 | prop | action  |
 | :-------------|:------------- |
-| row ( default ) | displays children in row orientation|
+| className | apply a className to the Wrapper Component |
+| row ( default ) | displays children in row orientation |
 | col | displays children in col orientation |  
 
 

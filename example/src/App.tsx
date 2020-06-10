@@ -13,12 +13,12 @@ import _six from './imgs/6.png'
 const App = () => {
 
   const OBJ_STRING_ITEMS = [
-    { item: '🦜', name: 'Parrot' },
-    { item: '🦖', name: 'Dinosaur' },
-    { item: '🦆', name: 'Duck' },
-    { item: '🦔', name: 'Porkypine' },
-    { item: '🐤', name: 'Chick' },
-    { item: '🐧', name: 'Penguin' }
+    { thing: '🦜', name: 'Parrot' },
+    { thing: '🦖', name: 'Dinosaur' },
+    { thing: '🦆', name: 'Duck' },
+    { thing: '🦔', name: 'Porkypine' },
+    { thing: '🐤', name: 'Chick' },
+    { thing: '🐧', name: 'Penguin' }
   ]
 
   const STRING_ITEMS = [
@@ -35,11 +35,11 @@ const App = () => {
       <div className="app">
         <section>
           <h1 className="title">Array of objects into cards</h1>
-          <DraggableArray>
-            {OBJ_STRING_ITEMS.map(({ item, name }, i) => (
+          <DraggableArray className="draggable-cont">
+            {OBJ_STRING_ITEMS.map(({ thing, name }, i) => (
               <div key={i} className="card">
                 <h1 className="card-h">{name}</h1>
-                <p className="card-p">{item}</p>
+                <p className="card-p">{thing}</p>
               </div>
             ))}
           </DraggableArray>
