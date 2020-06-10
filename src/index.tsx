@@ -3,36 +3,55 @@ import { useState } from 'react'
 
 import styles from './styles.module.css'
 
-const DraggableArray: React.FC<props> = ({ children, className, col, row }) => {
+const DraggableArray: React.FC<props> = ({ children, className, state, col, row }) => {
 
   const childArr: any[] = []
   React.Children.forEach(children, (child?: any) => childArr.push(child))
 
-  const [arr, setArr] = useState<any[]>(childArr)
+  const [externalState, setExternalState] = useState<any[]>(state)
+  const [localState, setLocalState] = useState<any[]>(childArr)
 
   const [draggedItem, setDraggedItem] = useState<[]>()
   const [draggedOverItem, setDraggedOverItem] = useState<[]>()
 
   const onDragStart = (e: any | React.DragEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>, index: number): void => {
-    setDraggedItem(arr[index])
+    setDraggedItem(localState[index])
     e.dataTransfer.effectAllowed = 'move'
     e.dataTransfer.setData('text/html', e.target.parentNode)
     e.dataTransfer.setDragImage(e.target.parentNode, 40, 35)
   }
 
   const onDragOver = (index?: number | any): void => {
-    setDraggedOverItem(arr[index])
+    setDraggedOverItem(localState[index])
     if (draggedItem === draggedOverItem) return
-    let newArr = arr.filter((item: []) => {
+    let newArr = localState.filter((item: []) => {
       return item !== draggedItem
     })
     newArr.splice(index, 0, draggedItem)
-    setArr(newArr)
+    updateExternalState(externalState, index, 0)
+    setLocalState(newArr)
   }
 
-  const onDragEnd = (): void => {
-    console.log('end');
+  var updateExternalState = function (arr: any[], indexA: number, indexB: number) {
+    console.log(indexA);
+    console.log(indexB);
 
+    // var temp = arr[indexA];
+    // arr[indexA] = arr[indexB];
+    // arr[indexB] = temp;
+    setExternalState(arr)
+  };
+
+  const returnNewArrState = () => {
+    console.log('external state -> ', externalState);
+    console.log('local state -> ', localState);
+
+    return localState
+  }
+
+  const onDragEnd = () => {
+    console.log('end');
+    returnNewArrState()
   }
 
   const renderChildren = (type: string, props: {}, children: any, index: number): any => {
@@ -62,6 +81,7 @@ const DraggableArray: React.FC<props> = ({ children, className, col, row }) => {
         React.createElement(
           type,
           { ...props, ...dragProps },
+          children
         )
       )
     }
@@ -87,7 +107,7 @@ const DraggableArray: React.FC<props> = ({ children, className, col, row }) => {
 
   return (
     <div className={mainClassName()}>
-      {arr.map(({ type, props, props: { children } }, index) => (
+      {localState.map(({ type, props, props: { children } }, index) => (
         <li key={index}
           className={childrenClassName(props)}
           style={children ? { ...props.style } : {}}

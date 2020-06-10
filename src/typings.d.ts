@@ -9,6 +9,7 @@ declare module '*.css' {
 
 interface props {
   className: string
+  state: any
   row?: boolean
   col?: boolean
 }

@@ -30,6 +30,10 @@ const App = () => {
     '🐧'
   ]
 
+  const [state,] = React.useState(STRING_ITEMS)
+
+
+
   return (
     <>
       <div className="app">
@@ -46,8 +50,8 @@ const App = () => {
         </section>
         <section>
           <h1 className="title">String arrays are fine too </h1>
-          <DraggableArray>
-            {STRING_ITEMS.map((item, i) => (
+          <DraggableArray state={state}>
+            {state.map((item, i) => (
               <p key={i} className="string">{item}</p>
             ))}
           </DraggableArray>
