@@ -17,7 +17,7 @@
   flex-direction: column;
 }
 
-li {
+.li {
   cursor: pointer;
   list-style: none;
 }
